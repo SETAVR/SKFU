@@ -10,7 +10,7 @@ private:
 
 public:
     TimeConverter(int h, int m);
-    std::string getInfo();
+    string getInfo();
     int Minutes();
 };
 
