@@ -1,6 +1,6 @@
 #ifndef TIMECONVERTER_H
 #define TIMECONVERTER_H
-
+using namespace std;
 #include <string>
 
 class TimeConverter {
