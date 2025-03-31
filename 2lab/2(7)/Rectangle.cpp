@@ -15,7 +15,7 @@ Rectangle::Rectangle(int _x1, int _y1, int _x2, int _y2) {
 }
 
 Rectangle::~Rectangle() {
-    scout << "Объект Rectangle уничтожен." << endl;
+    cout << "Объект Rectangle уничтожен." << endl;
 }
 
 int Rectangle::getArea() {
