@@ -1,1 +1,31 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
 
+int main() {
+    string text;
+    cout << "Введите текст:\n";
+    getline(cin, text, '\0'); //(Ctrl+Z или Ctrl+D для ввода)
+
+    // Замена "Максимальный" на "Наибольший"
+    int pos = 0; //Позиция Иванова И.И. в тексте
+    
+    while ((pos = text.find("Максимальный", pos)) != string::npos) { //npos - "не существует"
+        text.replace(pos, 24, "Наибольший"); //24 - число букв в заменяемом слове. 
+        pos += 24;
+    }
+
+    // Удаление "Иванов И.И."
+    while ((pos = text.find("Иванов И.И.")) != string::npos) {
+        text.erase(pos, 20); //Должно быть по размеру с удаляемым словом, но с русскими буквами нужно брать больше
+    }
+
+    // Подсчёт количества предложений (по символу '.')
+    int tochki = count(text.begin(), text.end(), '.');
+
+    cout << "\nОбработанный текст:\n" << text << "\n";
+    cout << "\nКоличество предложений: " << tochki << "\n";
+
+    return 0;
+}
