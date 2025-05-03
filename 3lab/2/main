@@ -1,1 +1,41 @@
 
+//работает только с латиницей!!!
+
+#include <iostream>
+#include <string>
+#include <cctype> // Для isspace, toupper, islower
+using namespace std;
+
+int main() {
+    string text;
+    cout << "Введите текст:\n";
+    getline(cin, text, '\0'); // Ввод до EOF (Ctrl+Z или Ctrl+D)
+
+    // Преобразование первой буквы после ". " в заглавную
+    for (size_t i = 0; i + 2 < text.length(); ++i) {
+        if (text[i] == '.' and text[i + 1] == ' ' and islower(text[i + 2])) { //если точка и пробел и маленькая буква
+            text[i + 2] = toupper(text[i + 2]); //заменить маленькую на большую
+        }
+    }
+
+    // Подсчет слов, начинающихся на букву 'А' или 'а'
+    int countA = 0;
+    bool newWord = true;
+
+    for (char ch : text) {   //: - перебирать по одному элементу в text
+        if (isspace(ch)) { //Если символ - пробел, пропускаем
+            newWord = true;
+  } 
+        else {
+            if (newWord == true and (ch == 'A' or ch == 'a')) {
+                ++countA;
+            }
+            newWord = false;
+        }
+    }
+
+    cout << "\nОбработанный текст:\n" << text << "\n";
+    cout << "\nКоличество слов, начинающихся на букву 'А': " << countA << "\n";
+
+    return 0;
+}
