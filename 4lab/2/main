@@ -1,1 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() 
+{
+    vector<string> ms;   //создаем массив, где будут храниться города
+  
+  
+    for(string i; i!="0";){  //цикл для ввода названия городов с клавиатуры
+      cout << "введите город или ноль для завершения" << endl;
+      cin >> i;
+      ms.push_back(i);  //в конец добавляем наши города
+    }
+      
+    int t = 0;  //счетчик проверки слов
+    string ai = ""; //для проверки каждого слова поотдельности
+    int maxi = 0;  //предполагаемая максимальная длинна
+    string maxii = ""; //предполагаемое максимальное слово
+    int maxinum = 0; //номер максимального слова
+    for(int c = ms.size(); c > t; t++){
+        ai = ms[t]; 
+        if(maxi < ai.length()){
+            maxi = ai.length();
+            maxii = ms[t];
+            maxinum = t;
+        }
+    }
+    cout << maxinum+1 << " - " << maxii;
+        
+    }
 
