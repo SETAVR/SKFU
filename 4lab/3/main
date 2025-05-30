@@ -1,1 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() 
+{
+    vector<string> ms;   //создаем массив, где будут храниться имена
+  
+    for(string i; i!="0";){  //цикл для ввода имен с клавиатуры
+      cout << "введите город или ноль для завершения" << endl;
+      cin >> i;
+      ms.push_back(i);  //в конец добавляем наши имена
+    }
+      
+    int t = 0;  //счетчик проверки слов
+    string ai = ""; //для проверки каждого слова поотдельности
+    int imena = 0; //Счетчик имен с R
+    for(int c = ms.size(); c > t; t++){
+        ai = ms[t]; 
+
+        for(int i = 0; ai.length() > i; i++){
+            if (ai[i] == 'r'){
+                imena += 1;
+                break;
+            }
+            
+        }
+        
+    }
+    cout << imena;
+}
 
