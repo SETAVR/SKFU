@@ -1,1 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
 
+int main() 
+{
+    vector<string> ms;   //создаем массив, где будут храниться города
+  
+  
+    for(string i; i!="0";){  //цикл для ввода названия городов с клавиатуры
+      cout << "введите город или ноль для завершения" << endl;
+      cin >> i;
+      ms.push_back(i);  //в конец добавляем наши города
+    }
+      
+    int t = 0;  //счетчик проверки слов
+    string ai = ""; //для проверки каждого слова поотдельности
+    for(int c = ms.size(); c > t; t++){
+        ai = ms[t]; 
+        if (ai[ai.length()-1] == 'k'){  //проверяем, есть ли в конце слова "k"
+            cout << t+1 << " - " << ms[t] << endl; //выводим слово и его номер, если есть "k"
+        }
+    }
+}
